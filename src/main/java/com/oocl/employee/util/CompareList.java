@@ -5,7 +5,7 @@ import com.oocl.employee.model.Employee;
 import java.util.List;
 
 public class CompareList {
-    public static boolean isEqual(List<Employee> listA, List<Employee> listB){
+    public static boolean isEqual(List listA, List listB){
         if(listA.size()!=listB.size()){
             return false;
         }
