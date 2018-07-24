@@ -44,13 +44,13 @@ public class CompanyController {
     public Company addCompany(@RequestBody Company company) {
         return companyService.AddCompany( company );
     }
-//
-//    @DeleteMapping("/Employees/{id}")
-//    @ResponseBody
-//    public List <Employee> deleteEmployee(@PathVariable Integer id) {
-//        return employeeService.DeleteEmployee( id );
-//    }
-//
+
+    @DeleteMapping("/Company/{id}")
+    @ResponseBody
+    public List <Company> deleteCompany(@PathVariable Integer id) {
+        return companyService.DeleteCompany( id );
+    }
+
     @PutMapping("/Company/{id}")
     @ResponseBody
     public List <Company> updateCompany(@RequestBody Company company, @PathVariable Integer id) {

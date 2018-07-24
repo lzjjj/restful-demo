@@ -71,4 +71,12 @@ public class CompanyServiceImplTests {
         List<Company> list = companyServiceImpl.FindAllCompany();
         Assert.assertThat(compareList.isEqual(afterUpdateList,list),Is.is(true));
     }
+    @Test
+    public void should_return_newList_when_DeleteCompany() {
+        CompanyServiceImpl companyServiceImpl = new CompanyServiceImpl();
+        CompareList compareList = new CompareList();
+        List<Company> afterDeleteList = companyServiceImpl.DeleteCompany( 1 );
+        List<Company> list = companyServiceImpl.FindAllCompany();
+        Assert.assertThat(compareList.isEqual(afterDeleteList,list),Is.is(true));
+    }
 }

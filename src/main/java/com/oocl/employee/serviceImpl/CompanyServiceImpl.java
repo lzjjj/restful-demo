@@ -54,7 +54,11 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public List <Company> DeleteCompany(int id) {
-        return null;
+        companyList.remove( companyList.stream()
+                .filter( i -> i.getId() == id )
+                .collect( Collectors.toList() )
+                .get( 0 ) );
+        return companyList;
     }
 
     @Override
