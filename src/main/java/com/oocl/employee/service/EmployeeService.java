@@ -11,4 +11,5 @@ public interface EmployeeService {
     public List<Employee> UpdateEmployee(int id,Employee employee);
     public Employee FindEmployee(int id);
     public List<Employee> FindMaleEmployee(String male);
+    public List<Employee> FindPagingEmployee(int page, int pageSize);
 }

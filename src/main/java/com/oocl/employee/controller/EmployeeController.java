@@ -48,4 +48,9 @@ public class EmployeeController {
     public List <Employee> FindMaleEmployee(@PathVariable String sex) {
         return employeeService.FindMaleEmployee( sex );
     }
+    @GetMapping("/Employees/page/{page}/pageSize/{pageSize}")
+    @ResponseBody
+    public List <Employee> FindPagingEmployee(@PathVariable int page,@PathVariable int pageSize) {
+        return employeeService.FindPagingEmployee( page, pageSize);
+    }
 }

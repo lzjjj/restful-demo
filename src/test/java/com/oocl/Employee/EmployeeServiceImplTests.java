@@ -67,4 +67,12 @@ public class EmployeeServiceImplTests {
         list = list.stream().filter( i->i.getSex().equals( "male" ) ).collect(Collectors.toList());
         Assert.assertThat(compareList.isEqual(employeeService.FindMaleEmployee("male"),list),Is.is(true));
     }
+    @Test
+    public void should_return_different_list_when_FindPagingEmployee() {
+        EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
+        CompareList compareList = new CompareList();
+        List<Employee> list_page_1 = employeeService.FindPagingEmployee(1,5);
+        List<Employee> list_page_2 = employeeService.FindPagingEmployee(2,5);
+        Assert.assertThat(compareList.isEqual(list_page_1,list_page_2),Is.is(false));
+    }
 }
