@@ -1,4 +1,4 @@
-package com.oocl.employee;
+package com.oocl;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

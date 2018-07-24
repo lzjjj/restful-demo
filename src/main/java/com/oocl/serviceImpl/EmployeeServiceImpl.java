@@ -1,11 +1,10 @@
-package com.oocl.employee.serviceImpl;
+package com.oocl.serviceImpl;
 
-import com.oocl.employee.EmployeeApplication;
-import com.oocl.employee.model.Employee;
-import com.oocl.employee.service.EmployeeService;
+import com.oocl.EmployeeApplication;
+import com.oocl.model.Employee;
+import com.oocl.service.EmployeeService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,14 +16,15 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeList;
     }
     @Override
-    public List<Employee> AddEmployee(Employee employee) {
+    public Employee AddEmployee(Employee employee) {
         employeeList.add(employee);
-        return employeeList;
+        return employee;
     }
 
     @Override
     public List <Employee> DeleteEmployee(int id) {
-      return  employeeList.stream().filter( i-> !(i.getId() == id) ).collect(Collectors.toList());
+        employeeList.remove( employeeList.stream().filter( i-> i.getId() == id ).findFirst() );
+      return  employeeList;
     }
 
     @Override

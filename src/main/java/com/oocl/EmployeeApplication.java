@@ -1,6 +1,6 @@
-package com.oocl.employee;
+package com.oocl;
 
-import com.oocl.employee.model.Employee;
+import com.oocl.model.Employee;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

@@ -1,4 +1,6 @@
-package com.oocl.employee.model;
+package com.oocl.model;
+
+import java.util.Objects;
 
 public class Employee {
     private int id;
@@ -10,6 +12,20 @@ public class Employee {
     public String getName() {
         return name;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+        Employee employee = (Employee) o;
+        return id == employee.id &&
+                age == employee.age &&
+                salary == employee.salary &&
+                Objects.equals( sex, employee.sex ) &&
+                Objects.equals( name, employee.name );
+    }
+
+
 
     public void setName(String name) {
         this.name = name;

@@ -1,8 +1,7 @@
-package com.oocl.employee.controller;
+package com.oocl.controller;
 
-import com.oocl.employee.model.Employee;
-import com.oocl.employee.service.EmployeeService;
-import com.oocl.employee.serviceImpl.EmployeeServiceImpl;
+import com.oocl.model.Employee;
+import com.oocl.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +21,7 @@ public class EmployeeController {
 
     @PostMapping("/Employees")
     @ResponseBody
-    public List <Employee> addEmployee(@RequestBody Employee employee) {
+    public Employee addEmployee(@RequestBody Employee employee) {
         return employeeService.AddEmployee( employee );
     }
 
