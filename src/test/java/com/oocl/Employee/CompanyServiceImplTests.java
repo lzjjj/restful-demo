@@ -38,4 +38,11 @@ public class CompanyServiceImplTests {
         Company company = new Company( 1,employeeList );
         Assert.assertThat(companyServiceImpl.FindCompany(1).equals( company ),Is.is(true));
     }
+    @Test
+    public void should_return_Employees_when_FindCompanyOfEmployee() {
+        CompanyServiceImpl companyServiceImpl = new CompanyServiceImpl();
+        List<Employee> employeeList = EmployeeApplication.allEmployee();
+        CompareList compareList = new CompareList();
+        Assert.assertThat(compareList.isEqual(companyServiceImpl.FindCompanyOfEmployee(1),employeeList),Is.is(true));
+    }
 }

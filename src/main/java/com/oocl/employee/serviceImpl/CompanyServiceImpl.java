@@ -20,6 +20,15 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
+    public List <Employee> FindCompanyOfEmployee(int id) {
+        return companyList.stream()
+                .filter( i->i.getId()==id )
+                .collect( Collectors.toList() )
+                .get( 0 )
+                .getEmployeeList();
+    }
+
+    @Override
     public List <Company> FindMaleCompany(String male) {
         return null;
     }

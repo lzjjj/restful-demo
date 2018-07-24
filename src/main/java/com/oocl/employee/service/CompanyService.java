@@ -13,4 +13,5 @@ public interface CompanyService {
     public Company FindCompany(int id);
     public List<Company> FindMaleCompany(String male);
     public List<Company> FindPagingCompany(int page, int pageSize);
+    public List<Employee> FindCompanyOfEmployee(int i);
 }

@@ -22,6 +22,17 @@ public class CompanyController {
         return companyService.FindAllCompany();
     }
 
+    @GetMapping("/Company/{id}")
+    @ResponseBody
+    public Company FindCompany(@PathVariable Integer id) {
+        return companyService.FindCompany( id );
+    }
+
+    @GetMapping("/Company/{id}/employees")
+    @ResponseBody
+    public List<Employee> FindCompanyOfEmployee(@PathVariable Integer id) {
+        return companyService.FindCompanyOfEmployee( id );
+    }
 //    @PostMapping("/Employees")
 //    @ResponseBody
 //    public Employee addEmployee(@RequestBody Employee employee) {
@@ -40,11 +51,7 @@ public class CompanyController {
 //        return employeeService.UpdateEmployee( id, employee );
 //    }
 //
-//    @GetMapping("/Employees/{id}")
-//    @ResponseBody
-//    public Employee FindEmployee(@PathVariable Integer id) {
-//        return employeeService.FindEmployee( id );
-//    }
+
 //
 //    @GetMapping("/Employees/sex/{sex}")
 //    @ResponseBody
