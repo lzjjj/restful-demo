@@ -35,7 +35,10 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public List <Company> FindPagingCompany(int page, int pageSize) {
-        return null;
+        return companyList.stream()
+                .skip( pageSize * (page - 1) )
+                .limit( pageSize )
+                .collect( Collectors.toList() );
     }
 
     @Override

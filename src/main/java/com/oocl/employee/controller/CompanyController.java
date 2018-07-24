@@ -33,6 +33,12 @@ public class CompanyController {
     public List<Employee> FindCompanyOfEmployee(@PathVariable Integer id) {
         return companyService.FindCompanyOfEmployee( id );
     }
+
+    @GetMapping("/Company/page/{page}/pageSize/{pageSize}")
+    @ResponseBody
+    public List <Company> FindPagingEmployee(@PathVariable int page, @PathVariable int pageSize) {
+        return companyService.FindPagingCompany( page, pageSize );
+    }
 //    @PostMapping("/Employees")
 //    @ResponseBody
 //    public Employee addEmployee(@RequestBody Employee employee) {
@@ -58,9 +64,5 @@ public class CompanyController {
 //    public List <Employee> FindMaleEmployee(@PathVariable String sex) {
 //        return employeeService.FindMaleEmployee( sex );
 //    }
-//    @GetMapping("/Employees/page/{page}/pageSize/{pageSize}")
-//    @ResponseBody
-//    public List <Employee> FindPagingEmployee(@PathVariable int page,@PathVariable int pageSize) {
-//        return employeeService.FindPagingEmployee( page, pageSize);
-//    }
+
 }

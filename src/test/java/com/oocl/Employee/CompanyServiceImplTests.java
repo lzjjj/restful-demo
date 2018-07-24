@@ -4,6 +4,7 @@ import com.oocl.employee.EmployeeApplication;
 import com.oocl.employee.model.Company;
 import com.oocl.employee.model.Employee;
 import com.oocl.employee.serviceImpl.CompanyServiceImpl;
+import com.oocl.employee.serviceImpl.EmployeeServiceImpl;
 import com.oocl.employee.util.CompareList;
 import org.hamcrest.core.Is;
 import org.junit.Assert;
@@ -44,5 +45,13 @@ public class CompanyServiceImplTests {
         List<Employee> employeeList = EmployeeApplication.allEmployee();
         CompareList compareList = new CompareList();
         Assert.assertThat(compareList.isEqual(companyServiceImpl.FindCompanyOfEmployee(1),employeeList),Is.is(true));
+    }
+    @Test
+    public void should_return_different_list_when_FindPagingCompany() {
+        CompanyServiceImpl companyServiceImpl = new CompanyServiceImpl();
+        CompareList compareList = new CompareList();
+        List<Company> list_page_1 = companyServiceImpl.FindPagingCompany(1,5);
+        List<Company> list_page_2 = companyServiceImpl.FindPagingCompany(2,5);
+        Assert.assertThat(compareList.isEqual(list_page_1,list_page_2),Is.is(false));
     }
 }
