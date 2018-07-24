@@ -43,5 +43,13 @@ public class EmployeeServiceImplTests {
         List<Employee> list = employeeService.FindAllEmployee();
         Assert.assertThat(compareList.isEqual(afterDeleteList,list),Is.is(true));
     }
-    
+    @Test
+    public void should_return_newList_when_UpdateEmployee() {
+        EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
+        CompareList compareList = new CompareList();
+        Employee employee = new Employee( 55,1,5000,"男","sdsdfds"  );
+        List<Employee> afterUpdateList = employeeService.UpdateEmployee( 1 ,employee);
+        List<Employee> list = employeeService.FindAllEmployee();
+        Assert.assertThat(compareList.isEqual(afterUpdateList,list),Is.is(true));
+    }
 }
