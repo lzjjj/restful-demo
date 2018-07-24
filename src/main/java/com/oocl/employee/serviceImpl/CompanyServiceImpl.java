@@ -6,13 +6,17 @@ import com.oocl.employee.model.Employee;
 import com.oocl.employee.service.CompanyService;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service("companyService")
 public class CompanyServiceImpl implements CompanyService {
     private List <Company> companyList = EmployeeApplication.allCompany();
     @Override
     public Company FindCompany(int id) {
-        return null;
+        return companyList.stream().filter( i->i.getId()==id ).collect( Collectors.toList() ).get( 0 );
     }
 
     @Override
