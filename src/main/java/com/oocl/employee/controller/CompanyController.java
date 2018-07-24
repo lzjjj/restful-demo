@@ -30,7 +30,7 @@ public class CompanyController {
 
     @GetMapping("/Company/{id}/employees")
     @ResponseBody
-    public List<Employee> FindCompanyOfEmployee(@PathVariable Integer id) {
+    public List <Employee> FindCompanyOfEmployee(@PathVariable Integer id) {
         return companyService.FindCompanyOfEmployee( id );
     }
 
@@ -39,6 +39,7 @@ public class CompanyController {
     public List <Company> FindPagingEmployee(@PathVariable int page, @PathVariable int pageSize) {
         return companyService.FindPagingCompany( page, pageSize );
     }
+
     @PostMapping("/Company")
     @ResponseBody
     public Company addCompany(@RequestBody Company company) {
@@ -56,13 +57,5 @@ public class CompanyController {
     public List <Company> updateCompany(@RequestBody Company company, @PathVariable Integer id) {
         return companyService.UpdateCompany( id, company );
     }
-
-
-//
-//    @GetMapping("/Employees/sex/{sex}")
-//    @ResponseBody
-//    public List <Employee> FindMaleEmployee(@PathVariable String sex) {
-//        return employeeService.FindMaleEmployee( sex );
-//    }
 
 }
