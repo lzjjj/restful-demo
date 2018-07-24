@@ -1,4 +1,4 @@
-package com.oocl.model;
+package com.oocl.employee.model;
 
 import java.util.Objects;
 

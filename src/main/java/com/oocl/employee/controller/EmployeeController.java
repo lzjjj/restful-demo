@@ -1,7 +1,7 @@
-package com.oocl.controller;
+package com.oocl.employee.controller;
 
-import com.oocl.model.Employee;
-import com.oocl.service.EmployeeService;
+import com.oocl.employee.service.EmployeeService;
+import com.oocl.employee.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -41,5 +41,11 @@ public class EmployeeController {
     @ResponseBody
     public Employee FindEmployee(@PathVariable Integer id) {
         return employeeService.FindEmployee( id );
+    }
+
+    @GetMapping("/Employees/sex/{sex}")
+    @ResponseBody
+    public List <Employee> FindMaleEmployee(@PathVariable String sex) {
+        return employeeService.FindMaleEmployee( sex );
     }
 }

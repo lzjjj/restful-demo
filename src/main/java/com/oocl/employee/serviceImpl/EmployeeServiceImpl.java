@@ -1,8 +1,8 @@
-package com.oocl.serviceImpl;
+package com.oocl.employee.serviceImpl;
 
-import com.oocl.EmployeeApplication;
-import com.oocl.model.Employee;
-import com.oocl.service.EmployeeService;
+import com.oocl.employee.EmployeeApplication;
+import com.oocl.employee.model.Employee;
+import com.oocl.employee.service.EmployeeService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +23,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List <Employee> DeleteEmployee(int id) {
-        employeeList.remove( employeeList.stream().filter( i-> i.getId() == id ).findFirst() );
+        employeeList.remove( employeeList.stream().filter( i-> i.getId() == id ).collect( Collectors.toList()).get( 0 )  );
       return  employeeList;
     }
 
@@ -43,5 +43,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee FindEmployee(int id) {
             return employeeList.stream().filter( i->i.getId()==id ).collect( Collectors.toList() ).get( 0 );
+    }
+    @Override
+    public List<Employee> FindMaleEmployee(String male) {
+        return employeeList.stream().filter( i->i.getSex()=="male" ).collect(Collectors.toList());
     }
 }

@@ -1,6 +1,6 @@
-package com.oocl.service;
+package com.oocl.employee.service;
 
-import com.oocl.model.Employee;
+import com.oocl.employee.model.Employee;
 
 import java.util.List;
 
@@ -10,4 +10,5 @@ public interface EmployeeService {
     public List<Employee> DeleteEmployee(int id);
     public List<Employee> UpdateEmployee(int id,Employee employee);
     public Employee FindEmployee(int id);
+    public List<Employee> FindMaleEmployee(String male);
 }

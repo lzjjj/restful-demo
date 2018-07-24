@@ -1,8 +1,9 @@
-package com.oocl;
+package com.oocl.Employee;
 
-import com.oocl.model.Employee;
-import com.oocl.serviceImpl.EmployeeServiceImpl;
-import com.oocl.util.CompareList;
+import com.oocl.employee.EmployeeApplication;
+import com.oocl.employee.model.Employee;
+import com.oocl.employee.serviceImpl.EmployeeServiceImpl;
+import com.oocl.employee.util.CompareList;
 import org.hamcrest.core.Is;
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
-
+import java.util.stream.Collectors;
 
 
 @RunWith(SpringRunner.class)
@@ -57,5 +58,13 @@ public class EmployeeServiceImplTests {
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
         List<Employee> list = employeeService.FindAllEmployee();
         Assert.assertThat(employeeService.FindEmployee(1).equals( list.get( 0 ) ),Is.is(true));
+    }
+    @Test
+    public void should_return_male_employee_list_when_FindMaleEmployee() {
+        EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
+        List<Employee> list = employeeService.FindAllEmployee();
+        CompareList compareList = new CompareList();
+        list = list.stream().filter( i->i.getSex().equals( "male" ) ).collect(Collectors.toList());
+        Assert.assertThat(compareList.isEqual(employeeService.FindMaleEmployee("male"),list),Is.is(true));
     }
 }

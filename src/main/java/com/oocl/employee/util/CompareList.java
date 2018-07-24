@@ -1,6 +1,6 @@
-package com.oocl.util;
+package com.oocl.employee.util;
 
-import com.oocl.model.Employee;
+import com.oocl.employee.model.Employee;
 
 import java.util.List;
 
