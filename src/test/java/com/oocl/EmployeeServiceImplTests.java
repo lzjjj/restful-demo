@@ -52,4 +52,10 @@ public class EmployeeServiceImplTests {
         List<Employee> list = employeeService.FindAllEmployee();
         Assert.assertThat(compareList.isEqual(afterUpdateList,list),Is.is(true));
     }
+    @Test
+    public void should_return_employee_when_FindEmployee() {
+        EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
+        List<Employee> list = employeeService.FindAllEmployee();
+        Assert.assertThat(employeeService.FindEmployee(1).equals( list.get( 0 ) ),Is.is(true));
+    }
 }
