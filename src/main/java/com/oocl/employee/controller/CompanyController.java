@@ -51,12 +51,12 @@ public class CompanyController {
 //        return employeeService.DeleteEmployee( id );
 //    }
 //
-//    @PutMapping("/Employees/{id}")
-//    @ResponseBody
-//    public List <Employee> updateEmployee(@RequestBody Employee employee, @PathVariable Integer id) {
-//        return employeeService.UpdateEmployee( id, employee );
-//    }
-//
+    @PutMapping("/Company/{id}")
+    @ResponseBody
+    public List <Company> updateCompany(@RequestBody Company company, @PathVariable Integer id) {
+        return companyService.UpdateCompany( id, company );
+    }
+
 
 //
 //    @GetMapping("/Employees/sex/{sex}")

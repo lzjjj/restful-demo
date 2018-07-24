@@ -61,4 +61,14 @@ public class CompanyServiceImplTests {
         Company company = new Company( 1,employeeList );
         Assert.assertThat(companyServiceImpl.AddCompany(company),Is.is(company));
     }
+    @Test
+    public void should_return_newList_when_UpdateCompany() {
+        CompanyServiceImpl companyServiceImpl = new CompanyServiceImpl();
+        CompareList compareList = new CompareList();
+        List<Employee> employeeList = null;
+        Company company = new Company( 1,employeeList  );
+        List<Company> afterUpdateList = companyServiceImpl.UpdateCompany( 1 ,company);
+        List<Company> list = companyServiceImpl.FindAllCompany();
+        Assert.assertThat(compareList.isEqual(afterUpdateList,list),Is.is(true));
+    }
 }
