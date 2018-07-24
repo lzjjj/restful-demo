@@ -48,7 +48,8 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public Company AddCompany(Company company) {
-        return null;
+        companyList.add( company );
+        return company;
     }
 
     @Override

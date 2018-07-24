@@ -54,4 +54,11 @@ public class CompanyServiceImplTests {
         List<Company> list_page_2 = companyServiceImpl.FindPagingCompany(2,5);
         Assert.assertThat(compareList.isEqual(list_page_1,list_page_2),Is.is(false));
     }
+    @Test
+    public void should_return_a_Company_when_AddCompany() {
+        CompanyServiceImpl companyServiceImpl = new CompanyServiceImpl();
+        List<Employee> employeeList = EmployeeApplication.allEmployee();
+        Company company = new Company( 1,employeeList );
+        Assert.assertThat(companyServiceImpl.AddCompany(company),Is.is(company));
+    }
 }

@@ -39,11 +39,11 @@ public class CompanyController {
     public List <Company> FindPagingEmployee(@PathVariable int page, @PathVariable int pageSize) {
         return companyService.FindPagingCompany( page, pageSize );
     }
-//    @PostMapping("/Employees")
-//    @ResponseBody
-//    public Employee addEmployee(@RequestBody Employee employee) {
-//        return companyService.AddEmployee( employee );
-//    }
+    @PostMapping("/Company")
+    @ResponseBody
+    public Company addCompany(@RequestBody Company company) {
+        return companyService.AddCompany( company );
+    }
 //
 //    @DeleteMapping("/Employees/{id}")
 //    @ResponseBody
