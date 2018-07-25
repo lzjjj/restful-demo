@@ -36,7 +36,7 @@ public class CompanyServiceImplTests {
     public void should_return_a_company_when_FindCompany() {
         CompanyServiceImpl companyServiceImpl = new CompanyServiceImpl();
         List<Employee> employeeList = EmployeeApplication.allEmployee();
-        Company company = new Company( 1,employeeList );
+        Company company = new Company( 1,"JD",employeeList );
         Assert.assertThat(companyServiceImpl.FindCompany(1).equals( company ),Is.is(true));
     }
     @Test
@@ -58,15 +58,16 @@ public class CompanyServiceImplTests {
     public void should_return_a_Company_when_AddCompany() {
         CompanyServiceImpl companyServiceImpl = new CompanyServiceImpl();
         List<Employee> employeeList = EmployeeApplication.allEmployee();
-        Company company = new Company( 1,employeeList );
+        Company company = new Company( 1,"JD",employeeList );
         Assert.assertThat(companyServiceImpl.AddCompany(company),Is.is(company));
     }
     @Test
     public void should_return_newList_when_UpdateCompany() {
         CompanyServiceImpl companyServiceImpl = new CompanyServiceImpl();
         CompareList compareList = new CompareList();
-        List<Employee> employeeList = null;
-        Company company = new Company( 1,employeeList  );
+        List<Employee> employeeList = EmployeeApplication.allEmployee();
+//        List<Employee> employeeList = null;
+        Company company = new Company( 1,"JD",employeeList  );
         List<Company> afterUpdateList = companyServiceImpl.UpdateCompany( 1 ,company);
         List<Company> list = companyServiceImpl.FindAllCompany();
         Assert.assertThat(compareList.isEqual(afterUpdateList,list),Is.is(true));

@@ -6,6 +6,24 @@ import java.util.Objects;
 public class Company {
     private List<Employee> employeeList;
     private Integer id;
+    private String companyName;
+    private Integer employeeNumber;
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public Integer getEmployeeNumber() {
+        return employeeNumber;
+    }
+
+    public void setEmployeeNumber(Integer employeeNumber) {
+        this.employeeNumber = employeeNumber;
+    }
 
     public Integer getId() {
         return id;
@@ -24,9 +42,11 @@ public class Company {
 
     }
 
-    public Company(int id ,List <Employee> employeeList) {
+    public Company(int id ,String companyName,List <Employee> employeeList) {
         this.employeeList = employeeList;
         this.id = id;
+        this.companyName = companyName;
+        this.employeeNumber = employeeList!=null ? employeeList.size() :0;
     }
 
     public Company() {
@@ -38,7 +58,10 @@ public class Company {
         if (!(o instanceof Company)) return false;
         Company company = (Company) o;
         return Objects.equals( employeeList, company.employeeList ) &&
-                Objects.equals( id, company.id );
+                Objects.equals( id, company.id ) &&
+                Objects.equals( companyName, company.companyName ) &&
+                Objects.equals( employeeNumber, company.employeeNumber );
     }
+
 
 }

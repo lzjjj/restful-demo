@@ -66,6 +66,8 @@ public class CompanyServiceImpl implements CompanyService {
         for (Company i : companyList) {
             if (i.getId() == id) {
                 i.setEmployeeList( company.getEmployeeList() );
+                i.setCompanyName(company.getCompanyName()  );
+                i.setEmployeeNumber(company.getEmployeeNumber()  );
             }
         }
         return companyList;
